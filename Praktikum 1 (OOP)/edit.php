@@ -2,6 +2,9 @@
 include 'koneksi.php';
 $db = new database();
 ?>
+<?php
+    foreach($db->edit($_GET['nim']) as $data){    
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -13,35 +16,28 @@ $db = new database();
 <body>
 <div class="container mt-4">
     <h3 align="center">Edit Data Mahasiswa</h3>
-    <?php
-    $data_edit = $db->edit($_GET['nim']);
-    if(!empty($data_edit)){
-        foreach($data_edit as $data){
-    ?>
     <form action="proses.php?aksi=update" method="post">
-        <div class="form-group">
-            <label for="nim">NIM</label>
-            <input type="text" class="form-control" name="nim" style="width:500px;" value="<?php echo $data['nim']; ?>" readonly>
-        </div>
-        <div class="form-group">
-            <label for="nama">Nama</label>
-            <input type="text" class="form-control" name="nama" style="width:500px;" value="<?php echo $data['nama']; ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="alamat">Alamat</label>
-            <input type="text" class="form-control" name="alamat" style="width:500px;" value="<?php echo $data['alamat']; ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="telepon">Telepon</label>
-            <input type="text" class="form-control" name="telepon" style="width:500px;" value="<?php echo $data['telepon']; ?>" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="tampil.php" class="btn btn-secondary">Kembali</a>
+        <table>
+            <div class="form-group">
+                <label for="nim">NIM</label>
+                <input type="text" class="form-control" name="nim" style="width:500px;" value="<?php echo $data['nim']; ?>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="nama">Nama</label>
+                    <input type="text" class="form-control" name="nama" style="width:500px;" value="<?php echo $data['nama']; ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" class="form-control" name="alamat" style="width:500px;" value="<?php echo $data['alamat']; ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="telepon">Telepon</label>
+                <input type="text" class="form-control" name="telepon" style="width:500px;" value="<?php echo $data['telepon']; ?>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </table>
+        <?php } ?>
     </form>
-    <?php
-        }
-    }
-    ?>
 </div>
 </body>
 </html>
