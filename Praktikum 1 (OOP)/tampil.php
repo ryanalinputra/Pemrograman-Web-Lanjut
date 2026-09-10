@@ -13,7 +13,7 @@ $db = new database();
 <body>
 <div class="container mt-4">
     <h3 align="center">Data Mahasiswa</h3>
-    <table border="1" class="table table-bordered">
+    <table border="1"">
         <tr id="tabel">
             <td width="50px" align="center">No</td>
             <td width="200px" align="center">NIM</td>
@@ -24,44 +24,44 @@ $db = new database();
         </tr>
         <?php
         $no = 1;
-        $data_mahasiswa = $db->tampil_data();
-        if(!empty($data_mahasiswa)) {
-            foreach ($data_mahasiswa as $data) { ?>
-                <tr>
-                    <td align="center"><?php echo $no++; ?></td>
-                    <td><?php echo $data['nim']; ?></td>
-                    <td><?php echo $data['nama']; ?></td>
-                    <td><?php echo $data['alamat']; ?></td>
-                    <td><?php echo $data['telepon']; ?></td>
-                    <td>
-                        <a href="edit.php?nim=<?php echo $data['nim']; ?>&aksi=edit">Edit</a>
-                        <a href="proses.php?nim=<?php echo $data['nim']; ?>&aksi=hapus">Hapus</a>
-                    </td>
-                </tr>
+        foreach ($db->tampil_data() as $data) { 
+        ?>
+            <tr>
+                <td align="center"><? php echo $no++; ?></td>
+                <td><?php echo $data['nim']; ?></td>
+                <td><?php echo $data['nama']; ?></td>
+                <td><?php echo $data['alamat']; ?></td>
+                <td><?php echo $data['telepon']; ?></td>
+                <td>
+                    <a href="edit.php?nim=<?php echo $data['nim']; ?>&aksi=edit">Edit</a>
+                    <a href="proses.php?nim=<?php echo $data['nim']; ?>&aksi=hapus">Hapus</a>
+                </td>
+            </tr>
         <?php 
-            }
         }
         ?>
     </table>
     <br>
     <form action="proses.php?aksi=tambah" method="post">
-        <div class="form-group">
-            <label for="nim">NIM</label>
-            <input type="text" class="form-control" name="nim" style="width:500px;" required>
-        </div>
-        <div class="form-group">
-            <label for="nama">Nama</label>
-            <input type="text" class="form-control" name="nama" style="width:500px;" required>
-        </div>
-        <div class="form-group">
-            <label for="alamat">Alamat</label>
-            <input type="text" class="form-control" name="alamat" style="width:500px;" required>
-        </div>
-        <div class="form-group">
-            <label for="telepon">Telepon</label>
-            <input type="text" class="form-control" name="telepon" style="width:500px;" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <table>
+            <div class="form-group">
+                <label for="nim">NIM</label>
+                <input type="text" class="form-control" name="nim" style="width:500px;" required>
+            </div>
+            <div class="form-group">
+                <label for="nama">Nama</label>
+                <input type="text" class="form-control" name="nama" style="width:500px;" required>
+            </div>
+            <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" class="form-control" name="alamat" style="width:500px;" required>
+            </div>
+            <div class="form-group">
+                <label for="telepon">Telepon</label>
+                <input type="text" class="form-control" name="telepon" style="width:500px;" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </table>
     </form>
 </div>
 </body>
