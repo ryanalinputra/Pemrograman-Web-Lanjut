@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `mahasiswa` (
   PRIMARY KEY (`nim`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Optional sample data sesuai screenshot halaman 16
+
 INSERT INTO `mahasiswa` (`nim`, `nama`, `alamat`, `telepon`) VALUES
 (13812, 'Nimas Sarinila', 'Bandar Kidul - Kediri', '0816382908'),
 (13813, 'Kunti Eliyen', 'Bandar Lor - Kediri', '0824735639'),
