@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS `politeknik`;
+USE `politeknik`;
+
+CREATE TABLE IF NOT EXISTS `siswa` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `kode_siswa` VARCHAR(50) NOT NULL,
+  `nama_siswa` VARCHAR(255) NOT NULL,
+  `alamat` TEXT NOT NULL,
+  `kota` VARCHAR(100) NOT NULL,
+  `kecamatan` VARCHAR(100) NOT NULL,
+  `kelurahan` VARCHAR(100) NOT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
