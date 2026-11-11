@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PraktikumController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\KategoriController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -52,4 +53,12 @@ Route::controller(BukuController::class)->group(function(){
     Route::get('/buku/edit/{id}', 'edit')->name('buku.edit');
     Route::put('/buku/edit/{id}', 'update')->name('buku.update');
     Route::post('/buku/delete/{id}', 'destroy')->name('buku.delete');
+});
+Route::controller(KategoriController::class)->group(function(){
+    Route::get('tampil-kategori', 'index');
+    Route::get('tambah-kategori', 'create')->name('kategori.add');
+    Route::post('tampil-kategori', 'store')->name('kategori.save');
+    Route::get('/kategori/edit/{id}', 'edit')->name('kategori.edit');
+    Route::put('/kategori/edit/{id}', 'update')->name('kategori.update');
+    Route::post('/kategori/delete/{id}', 'destroy')->name('kategori.delete');
 });

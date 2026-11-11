@@ -13,7 +13,7 @@
           <a class="nav-link" href="{{url('/tampil-buku')}}">Buku</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/kategori')}}">Kategori</a>
+          <a class="nav-link" href="{{url('/tampil-kategori')}}">Kategori</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url('/laporan')}}">Laporan</a>

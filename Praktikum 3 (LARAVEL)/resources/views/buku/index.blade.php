@@ -6,7 +6,7 @@
     <a href="{{ route('buku.add') }}" class="btn btn-success mb-3">
       +Tambah Data  
     </a>
-    <table class="table table-bordered table-striped" id="tabel-produk">
+    <table class="table table-bordered table-striped align-middle" id="tabel-produk">
         <thead>
             <tr>
                 <th style="width: 1%;">No.</th>
@@ -26,7 +26,7 @@
                 <td>{{ number_format($data->harga, 0, ',', '.') }}</td>
                 <td>{{ $data->stock }}</td>
                 <td>
-                    <form action="{{ route('buku.delete', $data->id) }}" method="POST">
+                    <form action="{{ route('buku.delete', $data->id) }}" method="POST" class="m-0">
                         @csrf
                         <a href="{{ route('buku.edit', $data->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus produk ini?')">
