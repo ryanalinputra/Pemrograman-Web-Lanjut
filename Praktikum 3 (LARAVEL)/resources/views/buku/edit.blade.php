@@ -11,7 +11,7 @@
             <h4>Edit Data Buku</h4>
             <hr>
 
-            <form action="{{ route('buku.update', $data->id) }}" method="POST">
+            <form action="{{ route('buku.update', $data->id) }}" method="POST" enctype="multipart/form-data">
 
                 @csrf
                 @method('PUT')
@@ -35,6 +35,23 @@
                 </div>
 
                 <div class="form-group mb-3">
+                    <label for="kategori">
+                        Kategori
+                        <span class="text-danger">*</span>
+                    </label>
+
+                    <select class="form-control" name="kategori" id="kategori" required>
+                        <option value="">-- Pilih Kategori --</option>
+                        @foreach ($kategori as $kat)
+                            <option value="{{ $kat -> id }}"
+                            {{ $kat->id == $data->kategori_id ? 'selected' : ''}}>
+                                {{ $kat->nama_kategori }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
                     <label for="harga">
                         Harga
                         <span class="text-danger">*</span>
@@ -50,6 +67,16 @@
                     </label>
 
                     <input class="form-control" type="number" name="stock" id="stock" value="{{ $data->stock }}" min="0"required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="image">Ganti Gambar Buku</label>
+                    @if($data->image)
+                        <div class="mb-2">
+                            <img src="{{ asset('storage/' . $data->image) }}" width="100" class="img-thumbnail" alt="Gambar Buku">
+                        </div>
+                    @endif
+                    <input class="form-control" type="file" name="image" id="image" accept="image/*">
                 </div>
 
                 <br>

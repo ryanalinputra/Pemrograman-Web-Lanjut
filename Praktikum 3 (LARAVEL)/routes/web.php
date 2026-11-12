@@ -41,7 +41,7 @@ Route::get('test', function() {
 // Route::post('/buku/delete/{id}', [BukuController::class, 'destroy'])->name('buku.delete');
 
 Route::controller(PraktikumController::class)->group(function(){
-    Route::get('home', 'home');
+    Route::get('/', 'home');
     Route::get('buku', 'buku');
     Route::get('kategori', 'kategori');
     Route::get('laporan', 'laporan');

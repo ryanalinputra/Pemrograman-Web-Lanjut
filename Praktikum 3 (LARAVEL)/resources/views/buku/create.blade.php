@@ -10,7 +10,7 @@
             <h4>Input Data Buku</h4>
             <hr>
 
-            <form action="{{ route('buku.save') }}" method="POST">
+            <form action="{{ route('buku.save') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group mb-3">
@@ -36,6 +36,22 @@
                 </div>
 
                 <div class="form-group mb-3">
+                    <label for="kategori">
+                        Kategori
+                        <span class="text-danger">*</span>
+                    </label>
+
+                    <select class="form-control" name="kategori" id="kategori" required>
+                        <option value="">-- Pilih Kategori --</option>
+                        @foreach ($kategori as $category)
+                            <option value="{{ $category -> id }}">
+                                {{ $category->nama_kategori }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
                     <label for="harga">
                         Harga
                         <span class="text-danger">*</span>
@@ -53,6 +69,16 @@
 
                     <input
                         class="form-control" type="number" name="stock" id="stock" value="{{ old('stock') }}" min="0" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="image">
+                        Gambar Buku 
+                        <span class="text-danger">*</span>
+                    </label>
+
+                    <input
+                        class="form-control" type="file" name="image" id="image" accept="image/*" required>
                 </div>
 
                 <br>
