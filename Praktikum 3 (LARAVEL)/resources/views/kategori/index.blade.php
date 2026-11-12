@@ -6,13 +6,13 @@
     <a href="{{ route('kategori.add') }}" class="btn btn-success mb-3">
       +Tambah Data  
     </a>
-    <table class="table table-bordered table-striped align-middle" id="tabel-kategori">
+    <table class="table table-bordered table-striped align-middle text-center" id="tabel-kategori">
         <thead>
             <tr>
                 <th style="width: 1%;">No.</th>
                 <th style="width: 20%;">Kode Kategori</th>
                 <th style="width: 50%;">Nama Kategori</th>
-                <th style="width: 20%;">Aksi</th>
+                <th style="width: 29%;">Aksi</th>
             </tr>
         </thead>
         <tbody>
