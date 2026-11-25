@@ -13,4 +13,8 @@ class Buku extends Model
     public function kategori(){
         return $this->belongsTo(Kategori::class, 'kategori_id');
     }
+
+    public function detailPenjualan(){
+        return $this->hasMany(DetailPenjualan::class, 'buku_id');
+    }
 }

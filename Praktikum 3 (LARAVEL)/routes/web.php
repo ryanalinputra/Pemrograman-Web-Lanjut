@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PraktikumController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KasirController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -61,4 +62,10 @@ Route::controller(KategoriController::class)->group(function(){
     Route::get('/kategori/edit/{id}', 'edit')->name('kategori.edit');
     Route::put('/kategori/edit/{id}', 'update')->name('kategori.update');
     Route::post('/kategori/delete/{id}', 'destroy')->name('kategori.delete');
+});
+Route::controller(KasirController::class)->group(function(){
+    Route::get('/kasir', 'index')->name('kasir.index');
+    Route::post('/kasir/checkout', 'checkout')->name('kasir.checkout');
+    Route::get('/penjualan', 'riwayat')->name('penjualan.index');
+    Route::get('/penjualan/{id}', 'detail')->name('penjualan.detail');
 });
