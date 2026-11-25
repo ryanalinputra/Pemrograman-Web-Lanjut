@@ -16,6 +16,12 @@
           <a class="nav-link" href="{{url('/tampil-kategori')}}">Kategori</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{{url('/kasir')}}">Kasir</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('/penjualan')}}">Transaksi</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{{url('/laporan')}}">Laporan</a>
         </li>
       </ul>
